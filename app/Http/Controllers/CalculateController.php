@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 require('BmiController.php');
 
 use Illuminate\Http\Request;
-use Illuminate\Contracts\Validation\Validator;
 
 class CalculateController extends Controller
 {

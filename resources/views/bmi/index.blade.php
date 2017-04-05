@@ -72,7 +72,7 @@
             </div>
 
             <div class="form-group">
-                <label><input type='checkbox' name='calories' value='calories' {{ ($calories) ? 'CHECKED' : '' }} >Include calorie requirement</label>
+                <label><input type='checkbox' name='calories' value='calories' {{ ($calories) ? 'CHECKED' : ''}} >Include calorie requirement</label>
             </div>
 
             <div class="form-group">
