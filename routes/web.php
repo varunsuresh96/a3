@@ -22,4 +22,8 @@ Route::get('/', 'CalculateController@index');
 * (only accessible locally)
 */
 
-Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
+if(config('app.env') == 'local') {
+
+    Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
+
+}
