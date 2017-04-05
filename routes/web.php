@@ -11,6 +11,15 @@
 |
 */
 
+/**
+* Main page which calculates the BMI and required calories.
+*/
 
 Route::get('/', 'CalculateController@index');
+
+/**
+* Log viewer
+* (only accessible locally)
+*/
+
 Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
