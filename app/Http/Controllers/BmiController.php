@@ -10,6 +10,7 @@ class BmiController extends Controller
     private $bmr;
     private $calories;
 
+    // This method calculates the user's BMI
     public function bmiCal($weight, $height)
     {
         if($weight!=0 and $height!=0)
@@ -20,6 +21,7 @@ class BmiController extends Controller
         return round($this->bmi,2);
     }
 
+    // This method calculates the user's Basal Metabolic Rate(BMR).
     private function bmr($weight,$height,$gender,$age)
     {
         if ($gender=='female')
@@ -34,6 +36,7 @@ class BmiController extends Controller
         return round($this->bmr,2);
     }
 
+    // This method calculates the calories to be consumed by the user.
     public function caloriesCal($weight, $height,$gender,$age,$activity)
     {
         if($activity=='sedentary')

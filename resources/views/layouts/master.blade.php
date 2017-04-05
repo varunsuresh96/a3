@@ -16,7 +16,6 @@
 
 	  <body>
   	    <div class='container'>
-			      <img src="images/bmi.jpg" alt="BMI Image"/>
 						<section>
                 @yield('content')
             </section>

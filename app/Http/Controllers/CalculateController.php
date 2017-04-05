@@ -13,6 +13,7 @@ class CalculateController extends Controller
     {
         $bmiObject= new BmiController();
 
+        // Assign the user's inputs to the appropriate variables
         $weight = $request->input('weight',null);
         $height = $request->input('height',null);
         $age = $request->input('age',null);
@@ -26,13 +27,14 @@ class CalculateController extends Controller
 
         if ($submitted)
         {
+            // Validate the user inputs and if validation fails, return the custom error messages.
             $this->validate($request, [
                 'weight' => 'required|numeric|min:1',
                 'height' => 'required|numeric|min:1',
                 'age' => 'required|numeric|min:1',
-            ],
+                ],
 
-            [
+                [
                 'weight.required' => 'Please enter your weight',
                 'weight.numeric' => 'Please enter a numerical value',
                 'weight.min:1' => 'Please enter a positive number',

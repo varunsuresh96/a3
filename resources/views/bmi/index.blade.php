@@ -7,20 +7,22 @@
 
 @section('content')
     <h1>BMI Calculator</h1>
+    <img src="images/bmi.jpg" alt="BMI Image"/>
     <form method='GET' action='/'>
         <fieldset>
-             <div class="form-group">
-                 <label for='weight'>* Weight(lbs)</label>
-                 <input type='text' id='weight' name='weight'  placeholder='Weight' autocomplete='off' class="form-control" value='{{ $weight or old('weight') }}'><br>
-             </div>
+            <div class="form-group">
+                <label for='weight'>* Weight(lbs)</label>
+                <input type='text' id='weight' name='weight'  placeholder='Weight' autocomplete='off' class="form-control" value='{{ $weight or old('weight') }}'><br>
+            </div>
 
-             @if($errors->get('weight'))
-                 <div class="alert alert-danger">
-                     <ul>
-                         @foreach($errors->get('weight') as $error)
-                             <li>{{ $error }}</li>
-                         @endforeach
-                     </ul>
+            <!-- If there are any error messages, print them right after the input field. -->
+            @if($errors->get('weight'))
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach($errors->get('weight') as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
                 </div>
             @endif
 
@@ -29,6 +31,7 @@
                 <input type='text' id='height' name='height' placeholder='Height' autocomplete='off' class="form-control" value='{{ $height or old('height') }}'><br>
             </div>
 
+            <!-- If there are any error messages, print them right after the input field. -->
             @if($errors->get('height'))
                 <div class="alert alert-danger">
                     <ul>
@@ -44,6 +47,7 @@
                 <input type='text' id='age' name='age' placeholder='Age' autocomplete='off' class="form-control" value='{{ $age or old('age') }}'>
             </div>
 
+            <!-- If there are any error messages, print them right after the input field. -->
             @if($errors->get('age'))
                 <div class="alert alert-danger">
                     <ul>
@@ -77,8 +81,11 @@
         </fieldset>
     </form>
 
+    <!-- If the form has been submitted and there are no errors, then print the user's BMI -->
     @if($submitted and count($errors)==0)
         <div class='alert alert-success'>Your BMI is {{$bmi}}</div>
+
+        <!-- Print the calories required if the checkbox has been checked by the user -->
         @if($calChecked)
             <div class='alert alert-success'>Your required calorie intake is {{$calories}}</div>
         @endif
